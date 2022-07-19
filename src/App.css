@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -32,7 +38,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+
+
+.header {
+  position: relative;
+  z-index: 5;
+}
+
+/* .App {
+  width: max-content;
+} */
