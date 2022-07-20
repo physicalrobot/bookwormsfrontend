@@ -24,22 +24,82 @@ import jwt_decode from "jwt-decode";
 
 
 function Home({ wormie }) {
+    let [book, setBook] = useState([])
 
     let [bookshelf, setBookshelves] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
 
+    let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
+    const id = user.user_id
+    // const infor = JSON.parse(window.localStorage.getItem('account') || '[]')
     useEffect(() => {
+
+        getAccount()
         getBookShelves()
+
+        // setAccount(JSON.parse(localStorage.getItem("account")));
+
+
+
     }, [])
 
 
-    let getBookShelves = async () => {
-        let response = await fetch(`http://127.0.0.1:8000/bookshelf/${user.user_id}`, {
+    useEffect(() => {
+        if (localStorage.getItem('account'))
+            setAccount(JSON.parse(localStorage.getItem("account")));
+    }, [])
+
+
+    // useEffect(() => {
+    //     if (account && account.length > 0)
+
+    //         localStorage.setItem('account', JSON.stringify(account))
+
+
+    // }, [account])
+    const savelocalaccount = () => {
+        if (account.length !== 0) {        //this line is new
+            localStorage.setItem("account", JSON.stringify(account))
+        }
+    }
+
+
+
+
+
+    const getAccount = async () => {
+        let response = await fetch("http://127.0.0.1:8000/api/user/", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens.access)
+            }
+        })
+
+        let data = await response.json()
+
+        if (response.status === 200) {
+            setAccount(data[id - 1])
+            // localStorage.setItem('account', JSON.stringify(account))
+            savelocalaccount()
+
+        } else if (response.statusText === 'Unauthorized') {
+            logoutUser()
+        }
+
+    }
+
+
+    let getBookShelves = async () => {
+        console.log(account)
+
+        console.log(localStorage.getItem("account"))
+
+        let response = await fetch(`http://127.0.0.1:8000/bookshelf/${account.bookshelf_id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Authorization': 'Bearer ' + String(authTokens.access)
             }
         })
         let data = await response.json()
@@ -50,8 +110,33 @@ function Home({ wormie }) {
             logoutUser()
         }
 
+
+        let response1 = await fetch(`http://127.0.0.1:8000/books/${account.book_id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + String(authTokens.access)
+            }
+        })
+        let data1 = await response1.json()
+
+        if (response1.status === 200) {
+            setBook(data1)
+        } else if (response1.statusText === 'Unauthorized') {
+            logoutUser()
+        }
+
+        // } else {
+        //     getAccount()
+        // }
+
     }
-    console.log(bookshelf)
+
+
+
+
+    // console.log(bookshelf)
+    // console.log(book)
     return (
         <div >
             <div className='siteHeader'>
