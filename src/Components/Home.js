@@ -29,9 +29,10 @@ function Home({ wormie }) {
     let [bookshelf, setBookshelves] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
+    // let { user } = useContext(AuthContext)
 
     let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
-    const id = user.user_id
+    let id = user.user_id
     // const infor = JSON.parse(window.localStorage.getItem('account') || '[]')
     useEffect(() => {
 
@@ -40,9 +41,9 @@ function Home({ wormie }) {
 
         // setAccount(JSON.parse(localStorage.getItem("account")));
 
+        savelocalaccount()
 
-
-    }, [])
+    }, [account])
 
 
     useEffect(() => {
@@ -58,6 +59,10 @@ function Home({ wormie }) {
 
 
     // }, [account])
+    useEffect(() => {
+        savelocalaccount()
+    }, [account])
+
     const savelocalaccount = () => {
         if (account.length !== 0) {        //this line is new
             localStorage.setItem("account", JSON.stringify(account))
@@ -81,7 +86,7 @@ function Home({ wormie }) {
         if (response.status === 200) {
             setAccount(data[id - 1])
             // localStorage.setItem('account', JSON.stringify(account))
-            savelocalaccount()
+            // savelocalaccount()
 
         } else if (response.statusText === 'Unauthorized') {
             logoutUser()
@@ -91,9 +96,9 @@ function Home({ wormie }) {
 
 
     let getBookShelves = async () => {
-        console.log(account)
+        // console.log(account)
 
-        console.log(localStorage.getItem("account"))
+        // console.log(localStorage.getItem("account"))
 
         let response = await fetch(`http://127.0.0.1:8000/bookshelf/${account.bookshelf_id}`, {
             method: 'GET',
