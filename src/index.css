@@ -46,10 +46,12 @@ code {
 
 }
 
-.siteHeader {
+/* .siteHeader {
   position: absolute;
+  height: 88px;
+
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
 
   gap: 2px;
   align-content: end;
@@ -57,9 +59,24 @@ code {
   min-width: 1000px;
   background: #F8F0EE;
   place-items: center;
-}
+} */
 
 .loginstuff {
   position: relative;
   top: 300px;
+}
+
+.siteHeader {
+  position: absolute;
+  height: 88px;
+
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+
+  gap: 2px;
+  align-content: end;
+  width: 100%;
+  min-width: 1000px;
+  background: #F8F0EE;
+  place-items: center;
 }

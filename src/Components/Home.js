@@ -21,6 +21,7 @@ import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../Context/AuthContext';
 import jwt_decode from "jwt-decode";
+import Reviews from './Reviews'
 
 
 function Home({ wormie }) {
@@ -136,15 +137,16 @@ function Home({ wormie }) {
 
     return (
         <div >
-   
+
 
             <div className='homecontainer'>
 
 
 
                 <div className='currentBookandBookReview'>
-                    <CurrentBook />
-                    <BookReview />
+                    <CurrentBook book={book} />
+                    {/* <BookReview /> */}
+                    <Reviews />
 
                 </div>
                 <div className='Bookshelf'>

@@ -13,7 +13,8 @@
     gap: 2px;
     align-items: center;
     position: relative;
-    left: -30px
+    left: 0px;
+    top: -5px;
 }
 
 .wormie {
@@ -24,15 +25,21 @@
 
 .homeloginout {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 100px 200px;
+    gap: 1px;
     align-items: center;
-    left: 30px;
+    position: relative;
+    left: 70px;
+    /* top: -70px; */
+    width: 100%;
 }
 
 .userstuff {
     position: relative;
     align-items: center;
-
+    width: 400px;
+    display: grid;
+    /* top: -146px; */
 }
 
 .headerOptions {
@@ -74,12 +81,22 @@
     /* border: solid; */
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2px;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: auto auto;
+    gap: 100px;
     height: 289px;
+    justify-content: center;
 
     background: linear-gradient(0deg, rgba(239, 146, 115, 0.2), rgba(239, 146, 115, 0.2)), linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./images/bookshelfbackground.jpg');
+}
 
+.currentBook {
+    position: relative;
+}
+
+.userReview {
+    position: relative;
 
 }
 
@@ -119,6 +136,19 @@
 }
 
 
+.search {
+    position: relative;
+    display: grid;
+    align-items: center;
+    margin-left: 70px;
+    left: 120px;
+}
+
+.searchdiv {
+    justify-content: end;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 
@@ -128,4 +158,16 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 4px;
+}
+
+
+.headerGroup1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.headerGroup2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
 }

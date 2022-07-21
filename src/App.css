@@ -59,12 +59,11 @@
   height: 78px;
 }
 
-.homeloginout {
+/* .homeloginout {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-}
+  left: 30px;
 
-
-
+} */
