@@ -5,6 +5,8 @@ function CurrentBook({ book }) {
 
     return (
         <div className='currentBook'>
+            <h1 className='currentbooklabel'>My Current Read</h1>
+
             <Card sx={{ position: 'relative', top: '0px', display: 'flex', width: 503, alignItems: 'center' }}>
                 <CardMedia
 

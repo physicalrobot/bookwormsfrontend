@@ -144,8 +144,8 @@ function Home({ wormie }) {
 
 
                 <div className='currentBookandBookReview'>
+
                     <CurrentBook book={book} />
-                    {/* <BookReview /> */}
                     <Reviews />
 
                 </div>

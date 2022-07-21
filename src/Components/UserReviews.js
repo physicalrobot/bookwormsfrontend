@@ -6,6 +6,7 @@ function UserReviews() {
 
     return (
         <div className='userReview'>
+            <h1 className='currentbookreviewslabel'>Reviews: BookTitle</h1>
             <Card sx={{ position: 'relative', display: 'flex', width: 503, alignItems: 'center' }}>
                 <CardHeader
                     avatar={
