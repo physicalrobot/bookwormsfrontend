@@ -23,32 +23,17 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        {/* <BrowserRouter>
-        <Routes>
-          <BrowserRouter> */}
+ 
         <div className='header'><Header /></div>
         <Routes>
-          {/* <Route path='/settings' element={<AuthProvider />}> */}
+
           <Route exact path='/' element={<PrivateRoute />}>
             <Route exact path='/' element={<Home wormie={wormie} />} />
 
           </Route>
-          {/* <PrivateRoute element={<Home wormie={wormie} />} path='/' exact /> */}
           <Route element={<LogIn />} path='/login' />
-          {/* </Route> */}
         </Routes>
 
-
-
-        {/* <Routes>
-        <Route path='/books' element={<Books />} />
-        <Route path='/invite' element={<BookClubInvite />} />
-        <Route path='/currentbook' element={<CurrentBook />} />
-        <Route path='/bookupdates' element={<bookupdates />} />
-      </Routes> */}
-        {/* </BrowserRouter>
-        </Routes>
-      </BrowserRouter> */}
       </div>
     </AuthProvider>
   );

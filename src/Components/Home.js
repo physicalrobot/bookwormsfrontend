@@ -32,7 +32,7 @@ function Home({ wormie }) {
     // let { user } = useContext(AuthContext)
 
     let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
-    let id = user.user_id
+    let [id, setId] = useState(user.user_id)
     // const infor = JSON.parse(window.localStorage.getItem('account') || '[]')
     useEffect(() => {
 
@@ -57,24 +57,25 @@ function Home({ wormie }) {
 
     //         localStorage.setItem('account', JSON.stringify(account))
 
-
-    // }, [account])
+    const bookshelfid = account[0].bookshelf
+    const bookid = account[0].book
     useEffect(() => {
         savelocalaccount()
     }, [account])
 
+    let accountinfo = {}
     const savelocalaccount = () => {
         if (account.length !== 0) {        //this line is new
             localStorage.setItem("account", JSON.stringify(account))
         }
+
+
     }
 
 
 
-
-
     const getAccount = async () => {
-        let response = await fetch("http://127.0.0.1:8000/api/user/", {
+        let response = await fetch("http://127.0.0.1:8000/account", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,9 +85,8 @@ function Home({ wormie }) {
         let data = await response.json()
 
         if (response.status === 200) {
-            setAccount(data[id - 1])
-            // localStorage.setItem('account', JSON.stringify(account))
-            // savelocalaccount()
+            setAccount(data.filter(person => person.user == id))
+
 
         } else if (response.statusText === 'Unauthorized') {
             logoutUser()
@@ -95,16 +95,14 @@ function Home({ wormie }) {
     }
 
 
+
     let getBookShelves = async () => {
-        // console.log(account)
 
-        // console.log(localStorage.getItem("account"))
 
-        let response = await fetch(`http://127.0.0.1:8000/bookshelf/${account.bookshelf_id}`, {
+        let response = await fetch(`http://127.0.0.1:8000/bookshelf/${bookshelfid}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Authorization': 'Bearer ' + String(authTokens.access)
             }
         })
         let data = await response.json()
@@ -116,7 +114,7 @@ function Home({ wormie }) {
         }
 
 
-        let response1 = await fetch(`http://127.0.0.1:8000/books/${account.book_id}`, {
+        let response1 = await fetch(`http://127.0.0.1:8000/books/${bookid}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -131,44 +129,16 @@ function Home({ wormie }) {
             logoutUser()
         }
 
-        // } else {
-        //     getAccount()
-        // }
-
     }
 
 
 
 
-    // console.log(bookshelf)
-    // console.log(book)
     return (
         <div >
-            <div className='siteHeader'>
-
-                <div className='siteTitle'>
-                    <img alt='sitelogo' className='wormie' src={wormie}></img>
-                    <h1>BookWorms</h1>
-                </div>
-
-                <div className='headerOptions'>
-
-                    <Books />
-
-                    <BookClubInvite />
-                </div>
-
-                <h2 className='userName'>Reader Name</h2>
-            </div>
-
-
-
+   
 
             <div className='homecontainer'>
-
-
-
-
 
 
 

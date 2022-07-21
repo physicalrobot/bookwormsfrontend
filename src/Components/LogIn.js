@@ -5,7 +5,7 @@ const LogIn = () => {
 
     return (
         <div>
-            <form onSubmit={loginUser}>
+            <form onSubmit={loginUser} className='loginstuff'>
                 <input type='text' name='username' placeholder='Enter Username' />
                 <input type='password' name='password' placeholder='Enter Password' />
                 <input type='submit' />
