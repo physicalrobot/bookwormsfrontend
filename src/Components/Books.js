@@ -20,7 +20,7 @@ function Books({ bookid }) {
             setBook(data1)
         }
     }
-    // console.log(book)
+    console.log(book)
 
 
     return (
@@ -52,7 +52,7 @@ function Books({ bookid }) {
                     <CardMedia
                         component="img"
                         height="140"
-                        image={book.BookCover}
+                        image={book?.BookCover}
                     />
                     <CardContent>
                         <Typography sx={{

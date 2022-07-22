@@ -132,6 +132,8 @@ function Home({ wormie }) {
 
     }
 
+    console.log(bookshelf)
+
 
 
 
