@@ -130,6 +130,14 @@
     margin-bottom: 0;
 }
 
+.bookshelfbooktitles {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
 .userReview {
     position: relative;
 

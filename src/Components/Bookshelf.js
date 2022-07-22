@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import Books from './Books';
 
 
 
@@ -27,7 +27,7 @@ function Bookshelf({ bookshelf }) {
     }
     return (
         <div>
-
+            {/* 
             <h1>I'm a bookshelf</h1>
 
             <label>Title<input type='text' value={title} onChange={
@@ -35,10 +35,10 @@ function Bookshelf({ bookshelf }) {
             ></input></label>
             <label>Cover<input type='file' onChange={
                 (evt) => setCover(evt.target.files[0])}></input></label>
-            <button onClick={() => newBook()}>New Book</button>
+            <button onClick={() => newBook()}>New Book</button> */}
             <ul>
                 {bookshelf.books?.map(book => (
-                    <li key={book}><h1>{book}</h1></li>
+                    <li key={book}><Books bookid={book} /></li>
                 ))}
             </ul>
 
