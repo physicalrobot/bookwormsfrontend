@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Books from './Books';
+import { ImageList, ImageListItem } from '@mui/material'
 
 
 
@@ -26,30 +27,35 @@ function Bookshelf({ bookshelf }) {
         //     .catch(error => console.log(error))
 
     }
+
+    const flexContainer = {
+        display: 'flex',
+        flexDirection: 'row',
+        padding: 0,
+    };
     console.log(bookshelf.books)
     return (
-        <div>
-            {/* 
-            <h1>I'm a bookshelf</h1>
+        <div className='bookshelflist'>
+            <ImageList
+                cols={1} className="favimageList squares" style={{
+                    display: 'flex', width: '345px',
+                }}>
+                <div className='listItem'>
+                    {bookshelf.books?.map((book) => {
+                        return (
+                            <ImageListItem className='favbooklistitem' key={book.id}     >
+                                <Books bookid={book} />
+                            </ImageListItem>
 
-            <label>Title<input type='text' value={title} onChange={
-                (evt) => setTitle(evt.target.value)}
-            ></input></label>
-            <label>Cover<input type='file' onChange={
-                (evt) => setCover(evt.target.files[0])}></input></label>
-            <button onClick={() => newBook()}>New Book</button> */}
+                        );
 
-            {bookshelf.books?.map((book) => {
-                return (
+                    })}
 
-                    <Books bookid={book} />
-                );
-            })}
-
-
+                </div>
 
 
 
+            </ImageList>
 
         </div>
     )

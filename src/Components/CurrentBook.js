@@ -7,7 +7,7 @@ function CurrentBook({ book }) {
         <div className='currentBook'>
             <h1 className='currentbooklabel'>{book.BookTitle}</h1>
 
-            <Card sx={{ position: 'relative', top: '0px', display: 'flex', width: 503, alignItems: 'center', height: '154px' }}>
+            <Card sx={{ position: 'relative', top: '0px', display: 'flex', width: 503, alignItems: 'center', height: '154px' }} >
                 <CardMedia
 
                     component='img'
@@ -16,22 +16,21 @@ function CurrentBook({ book }) {
                     sx={{ width: 151 }}
 
                 />
-                <Box sx={{ display: 'flex', flexDirection: 'column', width: 352 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: 352, height: 150 }}>
 
-                    <CardContent sx={{ flex: '1 0 auto', textAlign: 'left' }}>
+                    <CardContent className='currentbooksynopsis' sx={{ textAlign: 'left', height: '100px', overflow: 'auto' }}>
                         {/* <Typography
                             gutterBottom variant='h5' component='div' sx={{ position: 'relative', top: '-10px' }}>{book.BookTitle}
                         </Typography> */}
-                        <Typography variant='body2' color='text.secondary' sx={{
-
-                        }}>{book.Synopsis}
+                        <Typography variant='body2' color='text.secondary'>{book.Synopsis}
                         </Typography>
-                        <CardActions>
-                            <Button size='small' sx={{ flex: '1 0 auto', position: 'relative', top: '10px' }} >
-                                write review
-                            </Button>
-                        </CardActions>
+
                     </CardContent>
+                    <CardActions>
+                        <Button size='small' sx={{ flex: '1 0 auto', position: 'relative', }} >
+                            write review
+                        </Button>
+                    </CardActions>
                 </Box>
             </Card>
         </div >

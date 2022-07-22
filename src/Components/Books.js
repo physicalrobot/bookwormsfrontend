@@ -24,7 +24,7 @@ function Books({ bookid }) {
 
 
     return (
-        <div>
+        <div className='bookshelfcard'>
             {/* <Card sx={{ position: 'relative', top: '0px', width: 400, alignItems: 'center', height: '154px' }}>
                 <CardMedia
                     component='img'
@@ -47,33 +47,47 @@ function Books({ bookid }) {
                 </Box>
             </Card> */}
 
-            <Card sx={{ maxWidth: 151 }}>
+            <Card sx={{ maxWidth: 151, height: 300 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="140"
+                        height="212"
+                        width='151'
+
                         image={book?.BookCover}
                     />
-                    <CardContent>
+                    <CardContent sx={{
+                        height: 80, overflow: 'hidden',
+                    }} >
                         <Typography sx={{
                             fontFamily: 'Inter',
                             fontStyle: 'normal',
                             fontWeight: 700,
                             fontSize: '14px',
-                            lineHeight: '17px'
+                            lineHeight: '17px',
+                            height: '30px',
+                            position: 'relative',
+                            top: -10,
+                            maxWidth: 200,
+                            textAlign: 'left',
+                            textOverflow: 'ellipsis',
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap'
                         }} gutterBottom variant="h5" component="div">
                             {book?.BookTitle}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {book?.Synopsis}
+                        <Typography sx={{
+                            fontSize: '10px',
+                            height: '25px', overflow: 'hidden', width: '100px', position: 'relative', top: -25, textAlign: 'left'
+                        }} variant="body2" color="text.secondary">
+                            {book?.BookAuthor}
+                        </Typography>
+                        <Typography sx={{ textAlign: 'left', position: 'relative', top: -15 }} variant="body2" color="text.secondary">
+                            {book?.Rating}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary">
-                        Share
-                    </Button>
-                </CardActions>
+
             </Card>
 
 

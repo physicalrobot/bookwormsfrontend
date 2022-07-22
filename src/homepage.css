@@ -165,8 +165,8 @@
     position: relative;
     /* border: solid; */
     width: 100%;
-    /* height: 345px; */
-    
+    height: 345px;
+
     background: #F8F0EE;
 }
 
@@ -214,4 +214,72 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+}
+
+.bookshelflist {
+    display: 'flex';
+    flex-direction: 'row';
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+
+
+}
+
+
+
+.favimageList {
+    position: relative;
+    overflow-y: auto;
+    transform: rotate(-90deg) translateY(-65%);
+    transform-origin: right top;
+    color: white;
+    margin: auto;
+    z-index: 5;
+
+
+}
+
+.favimageList.squares {
+    /* height: 100%; */
+}
+
+.bookshelfcard {
+    height: 212px;
+    width: 151px;
+}
+
+
+
+
+.favbooklistitem {
+    transform: rotate(90deg);
+    position: relative;
+    width: 300px;
+    align-items: center;
+    position: relative;
+    left: 20%;
+}
+
+
+.listItem {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+    
+    /*the width actually: */
+    height: 1200px; 
+}
+
+.listItem::-webkit-scrollbar {
+    display: none;
+}
+
+.currentbookreview::-webkit-scrollbar {
+    display: none;
+}
+
+.currentbooksynopsis::-webkit-scrollbar {
+    display: none;
 }
