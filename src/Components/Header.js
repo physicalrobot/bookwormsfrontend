@@ -43,7 +43,7 @@ const Header = () => {
 
                 {/* <span></span>            s */}
                 <div className='search'>
-                    <Search />
+                    {/* <Search /> */}
                 </div>
                 <div className='userstuff'>
                     {user && <p>Hello {user.username}</p>}

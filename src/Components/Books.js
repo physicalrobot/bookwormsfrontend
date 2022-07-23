@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import { Box, Card, CardContent, Typography, CardActionArea, CardActions, Button, CardMedia } from '@mui/material'
+import Rating from '@mui/material/Rating';
+
 function Books({ bookid }) {
     const [book, setBook] = useState()
+    const [rating, setRating] = useState()
     useEffect(() => {
 
         getBooks()
@@ -18,34 +21,17 @@ function Books({ bookid }) {
 
         if (response.status === 200) {
             setBook(data1)
+
         }
+
     }
-    console.log(book)
+    // const [value, setValue] = useState < book?.Rating | null > (2);
+
+    console.log(book?.Rating)
 
 
     return (
         <div className='bookshelfcard'>
-            {/* <Card sx={{ position: 'relative', top: '0px', width: 400, alignItems: 'center', height: '154px' }}>
-                <CardMedia
-                    component='img'
-                    height='154 px'
-                    image={book?.BookCover}
-                    sx={{ width: 151 }}
-                />
-                <Box sx={{ width: 352 }} >
-
-                    <CardContent >
-
-                        <Typography >{book?.Synopsis}
-                        </Typography>
-                        <CardActions>
-                            <Button >
-                                write review
-                            </Button>
-                        </CardActions>
-                    </CardContent>
-                </Box>
-            </Card> */}
 
             <Card sx={{ maxWidth: 151, height: 300 }}>
                 <CardActionArea>
@@ -82,9 +68,17 @@ function Books({ bookid }) {
                         }} variant="body2" color="text.secondary">
                             {book?.BookAuthor}
                         </Typography>
-                        <Typography sx={{ textAlign: 'left', position: 'relative', top: -15 }} variant="body2" color="text.secondary">
-                            {book?.Rating}
-                        </Typography>
+                        {book?.Rating > 0 &&
+                            <Typography sx={{ textAlign: 'left', position: 'relative', top: -25 }} variant="body2" color="text.secondary">
+                                <Rating
+                                    name="read-only-rating"
+                                    value={book?.Rating}
+                                    readOnly
+                                />
+
+
+                            </Typography>
+                        }
                     </CardContent>
                 </CardActionArea>
 

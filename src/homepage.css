@@ -170,6 +170,8 @@
     background: #F8F0EE;
 }
 
+
+
 .Bookclubs {
     position: relative;
     /* border: solid; */
@@ -267,9 +269,9 @@
     width: 100%;
     overflow: scroll;
     position: relative;
-    
+
     /*the width actually: */
-    height: 1200px; 
+    height: 1200px;
 }
 
 .listItem::-webkit-scrollbar {

@@ -132,7 +132,7 @@ function Home({ wormie }) {
 
     }
 
-    console.log(bookshelf)
+    // console.log(bookshelf)
 
 
 
@@ -153,7 +153,7 @@ function Home({ wormie }) {
                 </div>
                 <div className='Bookshelf'>
 
-                    <Bookshelf bookshelf={bookshelf} />
+                    <Bookshelf user={user} bookshelf={bookshelf} />
 
                 </div>
                 <div className='Bookclubs'>
@@ -171,7 +171,6 @@ function Home({ wormie }) {
                 </div>
                 <div className='UserReviews'>
 
-                    <UserReviews />
                     <Link to="/books"><button><h1>books</h1></button></Link>
 
                 </div>

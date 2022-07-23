@@ -3,11 +3,12 @@ import Books from './Books';
 import { ImageList, ImageListItem } from '@mui/material'
 
 
+import { v4 as uuid } from 'uuid';
 
 
 
 
-function Bookshelf({ bookshelf }) {
+function Bookshelf({ user, bookshelf }) {
 
 
 
@@ -33,17 +34,20 @@ function Bookshelf({ bookshelf }) {
         flexDirection: 'row',
         padding: 0,
     };
-    console.log(bookshelf.books)
+    // console.log(bookshelf.books)
     return (
         <div className='bookshelflist'>
-            <ImageList
+            <ImageList key={user.id}
                 cols={1} className="favimageList squares" style={{
-                    display: 'flex', width: '345px',
+                    display: 'flex', width: '345px'
                 }}>
-                <div className='listItem'>
+                <div className='listItem' key={bookshelf.id}>
+
                     {bookshelf.books?.map((book) => {
+
                         return (
-                            <ImageListItem className='favbooklistitem' key={book.id}     >
+
+                            <ImageListItem className='favbooklistitem' key={book.id}>
                                 <Books bookid={book} />
                             </ImageListItem>
 
@@ -51,8 +55,8 @@ function Bookshelf({ bookshelf }) {
 
                     })}
 
-                </div>
 
+                </div>
 
 
             </ImageList>
