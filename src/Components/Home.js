@@ -30,18 +30,14 @@ function Home({ wormie }) {
     let [bookshelf, setBookshelves] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
-    // let { user } = useContext(AuthContext)
 
     let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
     let [id, setId] = useState(user.user_id)
-    // const infor = JSON.parse(window.localStorage.getItem('account') || '[]')
+
     useEffect(() => {
 
         getAccount()
         getBookShelves()
-
-        // setAccount(JSON.parse(localStorage.getItem("account")));
-
         savelocalaccount()
 
     }, [account])
@@ -53,10 +49,7 @@ function Home({ wormie }) {
     }, [])
 
 
-    // useEffect(() => {
-    //     if (account && account.length > 0)
 
-    //         localStorage.setItem('account', JSON.stringify(account))
 
     const bookshelfid = account[0].bookshelf
     const bookid = account[0].book
@@ -69,8 +62,6 @@ function Home({ wormie }) {
         if (account.length !== 0) {        //this line is new
             localStorage.setItem("account", JSON.stringify(account))
         }
-
-
     }
 
 
@@ -87,19 +78,14 @@ function Home({ wormie }) {
 
         if (response.status === 200) {
             setAccount(data.filter(person => person.user == id))
-
-
         } else if (response.statusText === 'Unauthorized') {
             logoutUser()
         }
-
     }
 
 
 
     let getBookShelves = async () => {
-
-
         let response = await fetch(`http://127.0.0.1:8000/bookshelf/${bookshelfid}`, {
             method: 'GET',
             headers: {
@@ -114,7 +100,6 @@ function Home({ wormie }) {
             logoutUser()
         }
 
-
         let response1 = await fetch(`http://127.0.0.1:8000/books/${bookid}`, {
             method: 'GET',
             headers: {
@@ -123,39 +108,29 @@ function Home({ wormie }) {
             }
         })
         let data1 = await response1.json()
-
         if (response1.status === 200) {
             setBook(data1)
         } else if (response1.statusText === 'Unauthorized') {
             logoutUser()
         }
-
     }
 
-    // console.log(bookshelf)
 
 
 
 
     return (
         <div >
-
-
             <div className='homecontainer'>
-
-
-
                 <div className='currentBookandBookReview'>
-
                     <CurrentBook book={book} />
                     <Reviews />
-
                 </div>
+
                 <div className='Bookshelf'>
-
                     <Bookshelf user={user} bookshelf={bookshelf} />
-
                 </div>
+
                 <div className='Bookclubs'>
                     <BookClubs user={user} />
 
@@ -167,7 +142,6 @@ function Home({ wormie }) {
                 </div>
                 <div className='BookclubFeed'>
                     <BookClubFeed />
-
                 </div>
                 <div className='UserReviews'>
 

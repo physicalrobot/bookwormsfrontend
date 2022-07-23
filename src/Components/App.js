@@ -20,6 +20,7 @@ import AuthContext, { AuthProvider } from '../Context/AuthContext'
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Collection from './Collection';
+import BookNew from './BookNew';
 
 function App() {
   // let { authTokens, logoutUser } = useContext(AuthContext)
@@ -81,6 +82,8 @@ function App() {
           </Route>
           <Route element={<LogIn />} path='/login' />
           <Route element={<Collection />} path='/books' />
+          <Route element={<BookNew />} path='/newbook' />
+
 
 
         </Routes>
