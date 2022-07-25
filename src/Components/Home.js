@@ -33,38 +33,26 @@ function Home({ wormie }) {
 
     let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
     let [id, setId] = useState(user.user_id)
+    let [bookshelfid, setBookshelfId] = useState()
+    let [bookid, setBookId] = useState()
 
     useEffect(() => {
-
         getAccount()
         getBookShelves()
         savelocalaccount()
-
     }, [account])
-
 
     useEffect(() => {
         if (localStorage.getItem('account'))
             setAccount(JSON.parse(localStorage.getItem("account")));
     }, [])
 
-
-
-
-    const bookshelfid = account[0].bookshelf
-    const bookid = account[0].book
-    useEffect(() => {
-        savelocalaccount()
-    }, [account])
-
     let accountinfo = {}
     const savelocalaccount = () => {
-        if (account.length !== 0) {        //this line is new
+        if (account?.length !== 0) {        //this line is new
             localStorage.setItem("account", JSON.stringify(account))
         }
     }
-
-
 
     const getAccount = async () => {
         let response = await fetch("http://127.0.0.1:8000/account", {
@@ -78,12 +66,12 @@ function Home({ wormie }) {
 
         if (response.status === 200) {
             setAccount(data.filter(person => person.user == id))
+            setBookId(account[0].book)
+            setBookshelfId(account[0].bookshelf)
         } else if (response.statusText === 'Unauthorized') {
             logoutUser()
         }
     }
-
-
 
     let getBookShelves = async () => {
         let response = await fetch(`http://127.0.0.1:8000/bookshelf/${bookshelfid}`, {
@@ -92,6 +80,7 @@ function Home({ wormie }) {
                 'Content-Type': 'application/json',
             }
         })
+
         let data = await response.json()
 
         if (response.status === 200) {
@@ -114,10 +103,6 @@ function Home({ wormie }) {
             logoutUser()
         }
     }
-
-
-
-
 
     return (
         <div >
@@ -144,12 +129,10 @@ function Home({ wormie }) {
                     <BookClubFeed />
                 </div>
                 <div className='UserReviews'>
-
                     <Link to="/books"><button><h1>books</h1></button></Link>
-
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

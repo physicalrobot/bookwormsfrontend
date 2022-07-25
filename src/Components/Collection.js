@@ -85,9 +85,11 @@ function Collection({ genredata }) {
             <h1>Collection</h1>
 
             <div className='all-books'>
-                {collection.map((book) => {
-                    return <Books bookid={book.BookId} />
-                })}
+                <div className='bookitem'>
+                    {collection.map((book) => {
+                        return <Books bookid={book.BookId} />
+                    })}
+                </div>
             </div>
             <Link to="/newbook"><button><h1>add book</h1></button></Link>
 
