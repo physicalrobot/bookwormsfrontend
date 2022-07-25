@@ -1,7 +1,8 @@
 import { Box, Card, CardContent, Typography, CardActions, Button, CardMedia } from '@mui/material'
 
 function CurrentBook({ book }) {
-    // console.log(book)
+    console.log(book)
+
 
     return (
         <div className='currentBook'>

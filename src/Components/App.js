@@ -23,16 +23,25 @@ import Collection from './Collection';
 import BookNew from './BookNew';
 
 function App() {
+  let [genre, setGenre] = useState([])
   // let { authTokens, logoutUser } = useContext(AuthContext)
   // let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
   // let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
   // let [id, setId] = useState(user.user_id)
 
 
-  // useEffect(() => {
-  //   if (localStorage.getItem('account'))
-  //     setAccount(JSON.parse(localStorage.getItem("account")));
-  // }, [])
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/genres", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then((r) => r.json())
+      .then((r) => setGenre(r))
+
+
+  }, [])
+
 
   // useEffect(() => {
   //   savelocalaccount()
@@ -81,7 +90,7 @@ function App() {
 
           </Route>
           <Route element={<LogIn />} path='/login' />
-          <Route element={<Collection />} path='/books' />
+          <Route element={<Collection genredata={genre} />} path='/books' />
           <Route element={<BookNew />} path='/newbook' />
 
 

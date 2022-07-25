@@ -4,9 +4,10 @@ import AuthContext from '../Context/AuthContext';
 import { useEffect, useState, useContext } from 'react';
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
+import Books from './Books';
 
 
-function Collection() {
+function Collection({ genredata }) {
     let { authTokens, logoutUser } = useContext(AuthContext)
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
     let [currentbook, setCurrentBook] = useState([])
@@ -19,7 +20,7 @@ function Collection() {
         getBooks()
     }, [collection])
 
-
+    console.log(genredata[0]?.genre)
     let getBookShelves = async () => {
 
 
@@ -76,11 +77,18 @@ function Collection() {
     console.log(account)
     console.log(bookshelf)
     console.log(currentbook)
+    // console.log(collection[0])
     return (
         <div className='collection'>
             <h1>The</h1>
             {console.log(collection)}
             <h1>Collection</h1>
+
+            <div className='all-books'>
+                {collection.map((book) => {
+                    return <Books bookid={book.BookId} />
+                })}
+            </div>
             <Link to="/newbook"><button><h1>add book</h1></button></Link>
 
         </div>
