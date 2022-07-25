@@ -70,7 +70,7 @@ function Books({ bookid }) {
                             {book?.BookAuthor}
                         </Typography>
                         {book?.Rating > 0 &&
-                            <Typography sx={{ textAlign: 'left', position: 'relative', top: -25 }} variant="body2" color="text.secondary">
+                            <Typography sx={{ textAlign: 'left', position: 'relative', top: -20 }} variant="body2" color="text.secondary">
                                 <Rating
                                     name="read-only-rating"
                                     value={book?.Rating}
