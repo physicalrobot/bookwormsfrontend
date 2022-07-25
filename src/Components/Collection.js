@@ -19,6 +19,7 @@ function Collection({ genredata }) {
     const [filtered, setFiltered] = useState([]);
     const [activeGenre, setActiveGenre] = useState(0);
 
+    const [search, setSearch] = useState("");
 
 
 
@@ -65,7 +66,7 @@ function Collection({ genredata }) {
         }
 
     }
-
+    console.log(collection)
     let getBooks = async () => {
         let response = await fetch(`http://127.0.0.1:8000/books`, {
             method: 'GET',
@@ -93,7 +94,8 @@ function Collection({ genredata }) {
     console.log(filtered)
     return (
         <div className='collection'>
-            <Filter collection={collection} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
+            <Filter collection={collection} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre} setSearch={setSearch} search={search}
+            />
             <div className='all-books'>
                 <motion.div layout className='bookitem'>
                     <AnimatePresence>
