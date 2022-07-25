@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Box, Card, CardContent, Typography, CardActionArea, CardActions, Button, CardMedia } from '@mui/material'
 import Rating from '@mui/material/Rating';
+import { motion } from "framer-motion";
 
 function Books({ bookid }) {
     const [book, setBook] = useState()
@@ -27,11 +28,11 @@ function Books({ bookid }) {
     }
     // const [value, setValue] = useState < book?.Rating | null > (2);
 
-    console.log(book?.Rating)
+    // console.log(book?.Rating)
 
 
     return (
-        <div className='bookshelfcard'>
+        <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className='bookshelfcard'>
 
             <Card sx={{ maxWidth: 151, height: 300 }}>
                 <CardActionArea>
@@ -87,7 +88,7 @@ function Books({ bookid }) {
 
 
 
-        </div>
+        </motion.div>
     )
 
 }

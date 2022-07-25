@@ -5,22 +5,32 @@ import { useEffect, useState, useContext } from 'react';
 import jwt_decode from "jwt-decode";
 import { Link } from 'react-router-dom';
 import Books from './Books';
-
-
+import Filter from './Filter';
+import { motion, AnimatePresence } from 'framer-motion'
+import { uuid } from 'uuidv4';
 function Collection({ genredata }) {
     let { authTokens, logoutUser } = useContext(AuthContext)
-    let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
-    let [currentbook, setCurrentBook] = useState([])
-    let [bookshelf, setBookshelves] = useState([])
+    let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null);
+    let [currentbook, setCurrentBook] = useState([]);
+    let [bookshelf, setBookshelves] = useState([]);
     let [account, setAccount] = useState(JSON.parse(localStorage.getItem('account')) ? JSON.parse(localStorage.getItem('account')) : null)
-    let [id, setId] = useState(user.user_id)
-    const [collection, setCollection] = useState([])
+    let [id, setId] = useState(user.user_id);
+    const [collection, setCollection] = useState([]);
+    const [filtered, setFiltered] = useState([]);
+    const [activeGenre, setActiveGenre] = useState(0);
+
+
+
+
     useEffect(() => {
         getBookShelves()
-        getBooks()
-    }, [collection])
 
-    console.log(genredata[0]?.genre)
+    }, [collection])
+    useEffect(() => {
+        getBooks()
+
+    }, [])
+    // console.log(genredata[0]?.genre)
     let getBookShelves = async () => {
 
 
@@ -56,7 +66,6 @@ function Collection({ genredata }) {
 
     }
 
-
     let getBooks = async () => {
         let response = await fetch(`http://127.0.0.1:8000/books`, {
             method: 'GET',
@@ -67,6 +76,9 @@ function Collection({ genredata }) {
         let data = await response.json()
         if (response.status === 200) {
             setCollection(data)
+            setFiltered(data)
+
+
         }
 
     }
@@ -74,26 +86,29 @@ function Collection({ genredata }) {
 
 
 
-    console.log(account)
-    console.log(bookshelf)
-    console.log(currentbook)
+    // console.log(collection)
+    // console.log(bookshelf)
+    // console.log(currentbook)
     // console.log(collection[0])
+    console.log(filtered)
     return (
         <div className='collection'>
-            <h1>The</h1>
-            {console.log(collection)}
-            <h1>Collection</h1>
-
+            <Filter collection={collection} setFiltered={setFiltered} activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
             <div className='all-books'>
-                <div className='bookitem'>
-                    {collection.map((book) => {
-                        return <Books bookid={book.BookId} />
-                    })}
-                </div>
-            </div>
-            <Link to="/newbook"><button><h1>add book</h1></button></Link>
+                <motion.div layout className='bookitem'>
+                    <AnimatePresence>
+                        {filtered.map((book) => {
+                            return <Books key={book.BookId} bookid={book.BookId} />
+                        })}
+                    </AnimatePresence>
+                </motion.div >
 
-        </div>
+            </div>
+
+
+
+
+        </div >
     )
 }
 
