@@ -1,14 +1,13 @@
 import { useState } from "react"
-
+import { useNavigate, useLocation } from "react-router-dom";
 import UserReviews from "./UserReviews"
-function Reviews() {
+function Reviews(book) {
 
-
-
+    const b = useLocation()
+    console.log(b.state.book)
 
     return (
-        <div className='currentbookreviews'>
-            <UserReviews />
+        <div className='reviews'>
 
         </div>
     )

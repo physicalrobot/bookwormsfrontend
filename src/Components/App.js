@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import Collection from './Collection';
 import BookNew from './BookNew';
+import Reviews from './Reviews';
 
 function App() {
   let [genre, setGenre] = useState([])
@@ -91,6 +92,8 @@ function App() {
           </Route>
           <Route element={<LogIn />} path='/login' />
           <Route element={<Collection genredata={genre} />} path='/books' />
+          <Route element={<Reviews />} path='/reviews' />
+
           <Route element={<BookNew />} path='/newbook' />
 
 

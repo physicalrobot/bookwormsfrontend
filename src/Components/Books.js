@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import { Box, Card, CardContent, Typography, CardActionArea, CardActions, Button, CardMedia } from '@mui/material'
 import Rating from '@mui/material/Rating';
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function Books({ bookid }) {
+    const navigate = useNavigate()
     const [book, setBook] = useState()
     const [rating, setRating] = useState()
     useEffect(() => {
@@ -28,11 +30,16 @@ function Books({ bookid }) {
     }
     // const [value, setValue] = useState < book?.Rating | null > (2);
 
-    // console.log(book?.Rating)
+    // console.log(book)
+    function reviewpage() {
 
+        // navigate('/reviews', { bookid={ bookid } })
+        navigate('/reviews', { state: { book: book } });
+
+    }
 
     return (
-        <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className='bookshelfcard'>
+        <motion.div onClick={(e) => reviewpage()} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className='bookshelfcard'>
 
             <Card sx={{ maxWidth: 151, height: 300 }}>
                 <CardActionArea>
@@ -76,13 +83,10 @@ function Books({ bookid }) {
                                     value={book?.Rating}
                                     readOnly
                                 />
-
-
                             </Typography>
                         }
                     </CardContent>
                 </CardActionArea>
-
             </Card>
 
 

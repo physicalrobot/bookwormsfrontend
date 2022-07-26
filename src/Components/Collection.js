@@ -100,6 +100,7 @@ function Collection({ genredata }) {
                 <motion.div layout className='bookitem'>
                     <AnimatePresence>
                         {filtered.map((book) => {
+
                             return <Books key={book.BookId} bookid={book.BookId} />
                         })}
                     </AnimatePresence>

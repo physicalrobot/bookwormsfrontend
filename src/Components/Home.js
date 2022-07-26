@@ -109,7 +109,8 @@ function Home({ wormie }) {
             <div className='homecontainer'>
                 <div className='currentBookandBookReview'>
                     <CurrentBook book={book} />
-                    <Reviews />
+                    <UserReviews />
+                    {/* <Reviews /> */}
                 </div>
 
                 <div className='Bookshelf'>
