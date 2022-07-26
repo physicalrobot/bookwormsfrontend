@@ -41,11 +41,11 @@ function Books({ bookid }) {
     return (
         <motion.div onClick={(e) => reviewpage()} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className='bookshelfcard'>
 
-            <Card sx={{ maxWidth: 151, height: 300 }}>
+            <Card sx={{ maxWidth: 151, height: 240 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="212"
+                        height="150"
                         width='151'
 
                         image={book?.BookCover}

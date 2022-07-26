@@ -248,7 +248,19 @@
 }
 
 
+.bookshelftitle {
+    position: relative;
+    left: -530px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 24px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
 
+}
 
 .favbooklistitem {
     transform: rotate(90deg);
@@ -264,6 +276,7 @@
     width: 100%;
     overflow: scroll;
     position: relative;
+    left: 0;
 
     /*the width actually: */
     height: 1200px;

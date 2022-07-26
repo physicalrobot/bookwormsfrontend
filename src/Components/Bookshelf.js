@@ -37,10 +37,13 @@ function Bookshelf({ user, bookshelf }) {
     // console.log(bookshelf.books)
     return (
         <div className='bookshelflist'>
+            <h1 className='bookshelftitle'>Bookshelf</h1>
+
             <ImageList key={user.id}
                 cols={1} className="favimageList squares" style={{
                     display: 'flex', width: '345px'
                 }}>
+
                 <div className='listItem' key={bookshelf.id}>
 
                     {bookshelf.books?.map((book) => {
