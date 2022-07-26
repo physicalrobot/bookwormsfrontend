@@ -38,7 +38,7 @@ function UserReviews() {
                             gutterBottom variant='h5' component='div' sx={{ position: 'relative', top: '-10px' }}>reviewtitle
                         </Typography> */}
                         <Typography className='currentbookreview' variant='body2' color='text.secondary' height='80px'
-                            sx={{ overflow: 'auto', position: 'relative' }}>review sdfdsf body;l askdjflaskdjf;laskdjf;laskdjf;lasdjf;ldsjf as;ldkfjasdf f;alsdkjf lkasdlkf asd;lkf jasd;lfk jasd;lkfj a;slkjf sd;alfj sd;dsfsdfsdfsdf  ;lfkjasdfasd asdf sdaf asd fasdf sdfas fsdfa sasdfasdf
+                            sx={{ overflow: 'auto', position: 'relative' }}>
                         </Typography>
                         <CardActions>
                             <Button size='small' sx={{ flex: '1 0 auto' }} >

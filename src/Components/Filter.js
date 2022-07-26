@@ -7,7 +7,6 @@ function Filter({ collection, setFiltered, activeGenre, setActiveGenre, setSearc
 
   console.log(search)
 
-  const bookgen = collection.map((book) => book.BookGenre.includes(2))
   function bookSearch(e) {
     setSearch(e.target.value)
     setFiltered(collection.filter((book) => book.BookTitle.toLowerCase().includes(search.toLowerCase())))

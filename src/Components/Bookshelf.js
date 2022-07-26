@@ -10,8 +10,6 @@ import { v4 as uuid } from 'uuid';
 
 function Bookshelf({ user, bookshelf }) {
 
-
-
     const [title, setTitle] = useState();
     const [cover, setCover] = useState();
 
@@ -45,7 +43,6 @@ function Bookshelf({ user, bookshelf }) {
                 }}>
 
                 <div className='listItem' key={bookshelf.id}>
-
                     {bookshelf.books?.map((book) => {
 
                         return (
@@ -55,15 +52,10 @@ function Bookshelf({ user, bookshelf }) {
                             </ImageListItem>
 
                         );
-
                     })}
 
-
                 </div>
-
-
             </ImageList>
-
         </div>
     )
 }
