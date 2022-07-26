@@ -65,7 +65,7 @@
     cursor: pointer;
 }
 
-button:focus {
+.filtercontainer button:focus {
     background: #EF9273;
     color: white;
 }
