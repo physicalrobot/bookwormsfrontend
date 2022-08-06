@@ -23,7 +23,9 @@ This app requires you to have Django and React 17.0.0
 
 ## Installation
 
-Although I'm still developing this website, you can check it out by downloading the repo and running 'npm install'. 
+Although I'm still developing this website, you can check it out by downloading the frontend repo and running 'npm install'. To start it on a local server, run
+'npm start'
+
 You have to download the backend separately. It requires you to run the following after downloading the repo for the backend:
 - python manage.py makemigrations 
 - python manage.py migrate 
