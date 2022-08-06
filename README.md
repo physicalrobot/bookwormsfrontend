@@ -1,5 +1,5 @@
 # BookWorms! 
-## A Social Media App for Book Nerds~
+### A Social Media App for Book Nerds~
 
 
 
