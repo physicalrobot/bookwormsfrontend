@@ -1,0 +1,66 @@
+.reviewnew {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: #F8F0EE; */
+    background: #f8f0eec4;
+
+    /* background-color: rgba(0, 0, 0, 0.803); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.reviewnew-inner {
+    /* color: white; */
+    position: absolute;
+    padding: 32px;
+    margin: auto;
+    width: 1600px;
+    /* max-width: 640px; */
+    /* background-color: rgba(0, 0, 0, .2); */
+    margin: auto;
+    top: 154px;
+    /* left: 50px; */
+
+
+
+
+
+    display: grid;
+    grid-template-columns: 800px 800px;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px)); */
+    /* grid-template-columns: 800px 800px;
+    margin: auto; */
+}
+
+/* .newreviewbookcover {
+
+    position: relative;
+    height: 1000px;
+    top: 27px;
+    left: 1px;
+} */
+
+
+.hello {
+    position: relative;
+    width: 695px;
+    left: 20px;
+}
+
+.newreviewform {
+    position: relative;
+    left: -32px;
+}
+
+.reviewnew-inner .close-btn {
+    position: absolute;
+    top: 40px;
+    z-index: 3;
+    right: 16px;
+    color: white
+}

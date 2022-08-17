@@ -26,6 +26,7 @@ import Reviews from './Reviews'
 
 function Home({ wormie }) {
     let [book, setBook] = useState([])
+    const [bookshelfbooks, setBookshelfBooks] = useState([])
 
     let [bookshelf, setBookshelves] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
@@ -39,6 +40,8 @@ function Home({ wormie }) {
     useEffect(() => {
         getAccount()
         getBookShelves()
+        setBookshelfBooks(bookshelf.books)
+
         savelocalaccount()
     }, [account])
 
@@ -103,6 +106,20 @@ function Home({ wormie }) {
             logoutUser()
         }
     }
+    console.log(bookshelf)
+    console.log(bookshelf.books)
+
+
+    function handleDeleteBookshelfBook(e) {
+        const updatedbooks = bookshelf.books.filter(function (value) {
+            console.log('itworksS')
+            return value != e;
+        });
+        setBookshelfBooks(updatedbooks)
+        console.log(updatedbooks)
+        // setBookshelfBooks(updatedbooks)
+    }
+
 
     return (
         <div >
@@ -114,7 +131,7 @@ function Home({ wormie }) {
                 </div>
 
                 <div className='Bookshelf'>
-                    <Bookshelf user={user} bookshelf={bookshelf} />
+                    <Bookshelf handleDeleteBookshelfBook={handleDeleteBookshelfBook} bookshelfbooks={bookshelfbooks} user={user} bookshelf={bookshelf} />
                 </div>
 
                 <div className='Bookclubs'>

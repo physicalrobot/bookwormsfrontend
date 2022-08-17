@@ -1,0 +1,143 @@
+.reviews {
+    position: relative;
+    display: grid;
+    top: 100px;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.currentbookreview {
+    position: relative;
+    top: 25px;
+}
+
+.reviewpage {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px)); */
+    grid-template-columns: 800px 800px;
+    margin: auto;
+
+    /* grid-template-columns: repeat(2, minmax(250px, 1fr)); */
+    /* grid-column-gap: 100px; */
+    /* grid-row-gap: 100px; */
+
+    border: 0px;
+    border-radius: 20px;
+}
+
+.newreviewform {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* background: #f8f0ee8e; */
+
+    padding: 50px;
+    position: absolute;
+
+    /* margin: 0 auto;
+
+    min-height: 960px; */
+
+    /* height: 1000px; */
+}
+
+.newreviewtitle {
+    position: relative;
+    left: -163px;
+}
+
+.newreviewrating {
+    position: relative;
+    /* top: -300px; */
+    z-index: 3;
+    left: 215px;
+    top: 30px;
+
+}
+
+.newreviewbodylabel {
+    position: relative;
+    top: -165px;
+}
+
+.newreviewbodytextbox {
+    position: relative;
+    top: 20px;
+    height: 200px;
+    width: 500px;
+}
+
+/* .newreviewrating {
+    position: relative;
+    top: 30px;
+} */
+
+.reviewratinglabel {
+    position: relative;
+    top: -8px;
+}
+
+.subbutt .reviewsubmitbutt {
+    left: 234px;
+    top: 25px;
+    color: white;
+}
+
+.newreviewbutt {
+    position: absolute;
+    top: -1055px;
+    left: 1140px;
+}
+
+.reviewbooktitle {
+    position: relative;
+    text-align: left;
+    left: 50px;
+}
+
+.reviewbookcover {
+
+    position: relative;
+    max-width: 695px;
+    height: 1000px;
+    z-index: 3;
+}
+
+.leftsideReviewPage {
+
+    /* position: relative; */
+    top: 30px;
+    left: 50px;
+}
+
+.reviewCardlist {
+    position: relative;
+    /* left: -50px; */
+    /* top: -100px; */
+    /* align-content: center; */
+}
+
+.reviewlist {
+    overflow: scroll;
+    width: auto;
+    height: 1000px;
+    background: #F8F0EE;
+    position: relative;
+    top: 85px;
+
+    flex-grow: 1;
+
+
+}
+
+.reviewCard {
+    background: #F8F0EE;
+    display: grid;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+
+.reviewlist::-webkit-scrollbar {
+    display: none;
+}

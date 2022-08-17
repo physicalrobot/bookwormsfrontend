@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import Books from './Books';
 import { ImageList, ImageListItem } from '@mui/material'
+import bookshelficon from '../images/bookshelf.png';
 
+import { motion } from "framer-motion";
 
 import { v4 as uuid } from 'uuid';
 
 
 
 
-function Bookshelf({ user, bookshelf }) {
+function Bookshelf({ user, bookshelf, handle, handleDeleteBookshelfBook }) {
 
     const [title, setTitle] = useState();
     const [cover, setCover] = useState();
@@ -27,6 +29,10 @@ function Bookshelf({ user, bookshelf }) {
 
     }
 
+    const printnum = () => {
+        console.log('hello');
+    }
+
     const flexContainer = {
         display: 'flex',
         flexDirection: 'row',
@@ -35,20 +41,31 @@ function Bookshelf({ user, bookshelf }) {
     // console.log(bookshelf.books)
     return (
         <div className='bookshelflist'>
-            <h1 className='bookshelftitle'>Bookshelf</h1>
+            < div className='bookshelfheader'>
+                <img className='bookshelficon' style={{
+                    display: 'flex', left: 100
+                }} src={bookshelficon} />
+
+                <h1 className='bookshelftitle'>Bookshelf</h1>
+            </div>
+
 
             <ImageList key={user.id}
                 cols={1} className="favimageList squares" style={{
                     display: 'flex', width: '345px'
                 }}>
 
+
                 <div className='listItem' key={bookshelf.id}>
+
+
+
                     {bookshelf.books?.map((book) => {
 
                         return (
 
                             <ImageListItem className='favbooklistitem' key={book.id}>
-                                <Books bookid={book} />
+                                <Books printnum={printnum} bookid={book} handleDeleteBookshelfBook={handleDeleteBookshelfBook} />
                             </ImageListItem>
 
                         );

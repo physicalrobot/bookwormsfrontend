@@ -18,7 +18,6 @@ function Collection({ genredata }) {
     const [collection, setCollection] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [activeGenre, setActiveGenre] = useState(0);
-
     const [search, setSearch] = useState("");
 
 
