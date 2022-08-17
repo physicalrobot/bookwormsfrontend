@@ -71,12 +71,14 @@ code {
   height: 88px;
 
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr;
 
   gap: 2px;
-  align-content: end;
+  justify-content: center;
+  align-content: center;
   width: 100%;
   min-width: 1000px;
   background: #F8F0EE;
   place-items: center;
+  /* margin: 0 auto */
 }

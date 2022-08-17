@@ -25,18 +25,36 @@
 
 .homeloginout {
     display: grid;
-    grid-template-columns: 100px 200px;
+    grid-template-columns: 100px 100px;
     gap: 1px;
     align-items: center;
     position: relative;
-    left: 70px;
+    margin: auto;
+    align-content: center;
+    /* left: 70px; */
+
     /* top: -70px; */
-    width: 100%;
+    width: auto;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: bolder;
     font-size: 20px;
     line-height: 15px;
+    top: 3px;
+    margin: 0 auto;
+}
+
+.homeloginout .homebutt {
+    color: black;
+}
+
+.bookclublogoutoptions .allbooksbutt {
+    color: black;
+}
+
+.bookclublogoutoptions .logoutbutt {
+    color: black;
+    left: 8px;
 }
 
 .userstuff {
@@ -49,6 +67,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 15px;
+    left: 160px;
     /* top: -146px; */
 }
 
@@ -205,9 +224,12 @@
 
 .bookclublogoutoptions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
+    position: relative;
+    /* left: 50%; */
+    /* left: 380px; */
 }
 
 
@@ -247,6 +269,10 @@
     justify-content: center;
     left: -510px;
     top: 10px;
+}
+
+.homeloginout .loginbutt {
+    color: black;
 }
 
 .reviewCard {
