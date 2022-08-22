@@ -7,7 +7,7 @@
     /* background: #F8F0EE; */
     background: #f8f0eec4;
 
-    /* background-color: rgba(0, 0, 0, 0.803); */
+    /* background-color: rgba(0, 0, 0, 0.2); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,13 +54,13 @@
 
 .newreviewform {
     position: relative;
-    left: -32px;
+    left: -70px;
 }
 
 .reviewnew-inner .close-btn {
     position: absolute;
     top: 40px;
     z-index: 3;
-    right: 16px;
+    right: 50px;
     color: white
 }

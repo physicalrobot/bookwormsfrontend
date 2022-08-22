@@ -33,6 +33,7 @@
 
     padding: 50px;
     position: absolute;
+    left: -40px;
 
     /* margin: 0 auto;
 
@@ -86,7 +87,7 @@
 .newreviewbutt {
     position: absolute;
     top: -1055px;
-    left: 1140px;
+    left: 1105px;
 }
 
 .reviewbooktitle {
@@ -124,6 +125,7 @@
     background: #F8F0EE;
     position: relative;
     top: 85px;
+    left: -40px;
 
     flex-grow: 1;
 

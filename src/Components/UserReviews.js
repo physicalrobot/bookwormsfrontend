@@ -40,7 +40,7 @@ function UserReviews() {
                         <Typography className='currentbookreview' variant='body2' color='text.secondary' height='80px'
                             sx={{ overflow: 'auto', position: 'relative' }}>
                         </Typography>
-                        <CardActions>
+                        <CardActions className='nxtbackbutt'>
                             <Button size='small' sx={{ flex: '1 0 auto' }} >
                                 back
                             </Button>

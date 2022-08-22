@@ -39,8 +39,8 @@ function Home({ wormie }) {
 
     useEffect(() => {
         getAccount()
-        getBookShelves()
         setBookshelfBooks(bookshelf.books)
+        getBookShelves()
 
         savelocalaccount()
     }, [account])
@@ -48,6 +48,7 @@ function Home({ wormie }) {
     useEffect(() => {
         if (localStorage.getItem('account'))
             setAccount(JSON.parse(localStorage.getItem("account")));
+
     }, [])
 
     let accountinfo = {}

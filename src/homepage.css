@@ -46,15 +46,29 @@
 
 .homeloginout .homebutt {
     color: black;
+    font-family: 'Inter';
+    font-weight: 1000;
+
+
 }
 
 .bookclublogoutoptions .allbooksbutt {
     color: black;
+    font-family: 'Inter';
+    font-weight: 1000;
+
 }
 
 .bookclublogoutoptions .logoutbutt {
     color: black;
     left: 8px;
+    font-family: 'Inter';
+    font-weight: 1000;
+
+}
+
+.nxtbackbutt{
+    position: relative;
 }
 
 .userstuff {

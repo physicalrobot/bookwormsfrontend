@@ -8,6 +8,7 @@ import Books from './Books';
 import Filter from './Filter';
 import { motion, AnimatePresence } from 'framer-motion'
 import { uuid } from 'uuidv4';
+
 function Collection({ genredata }) {
     let { authTokens, logoutUser } = useContext(AuthContext)
     let [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null);
